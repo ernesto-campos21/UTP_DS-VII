@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>laboratorio 2.6</title>
+    <title>laboratorio 2.8</title>
     <meta charset = "UTF-8">
 </head>
 <body>
