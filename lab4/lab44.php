@@ -7,7 +7,7 @@
 <body>
     <form action="lab44.php" method = "post">
     <?php
-        $arreglo_par[10] = 0;
+        $arreglo_par = array();
         
     ?>
     </form>
