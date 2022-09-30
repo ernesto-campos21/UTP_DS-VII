@@ -1,5 +1,5 @@
 <?php
-    include("class_lib.php");
+    include('D:\OthersProgs\xampp\htdocs\ds7\laboratorios\Class_files\class_lib.php');
     //instanciamos un par de objetos cliente
     $cliente1 = new cliente("Ernesto", 55);
     $cliente2 = new cliente("Andres", 3);

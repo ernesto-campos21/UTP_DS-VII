@@ -1,5 +1,5 @@
 <?php
-    include("class_lib.php");
+    include('D:\OthersProgs\xampp\htdocs\ds7\laboratorios\Class_files\class_lib.php');
     //Ejemplo de uso de la clase padre
     $soporte1 = new soporte("The Soccer Game",22,3);
     echo "<b>" . $soporte1->titulo . "</b>";

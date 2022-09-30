@@ -1,5 +1,5 @@
 <?php
-    include("class_lib.php");
+    include('D:\OthersProgs\xampp\htdocs\ds7\laboratorios\Class_files\class_lib.php');
     print Foo::$mi_static . " value (1)<br>";
     $foo = new Foo();
     print $foo->staticValor() . " value (2)<br>";
