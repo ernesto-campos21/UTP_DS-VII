@@ -22,7 +22,7 @@
         <body>
             <form name="formularioDatos" method="post" action="lab77.php">
             <p> CALCULO DE VOLUMEN y AREA DE UN CILINDRO </p>
-            <br/>
+            <br/>   
             Introduzca el diametro en metros: <input type="text" name="diam"
             value="">
             <br/> <br/>

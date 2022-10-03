@@ -255,4 +255,113 @@
         }
     }
 
+   
+    class Factorial
+    {
+        private $num;
+        private $factorial;
+
+        function __construct($n)
+        {
+            $this->num = $n;
+            $this->factorial = 1;
+        }
+
+
+        function obtenerFactorial()
+        {
+            for($i = 1; $i <= $this->num; $i++)
+            {
+                $this->factorial *= $i;
+            }
+            return $this->factorial;
+        }
+    }
+
+    class NumeroMayor
+    {
+        private $arreglo = array(20);
+        private $mayor;
+        private $indice;
+
+        function cargarArreglo()
+        {
+            for($i = 0; $i < 20; $i++)
+            {
+                $this->arreglo[$i] = rand(1, 100);
+            }
+        }
+
+        function mostrarArreglo()
+        {
+            for($i = 0; $i < 20; $i++)
+            {
+                echo "Posicion #$i con el valor: " . $this->arreglo[$i] . "<br>";
+            }
+        }
+
+        function buscarMayor()
+        {
+            $this->mayor = $this->arreglo[0];
+            for($i = 0; $i < 20; $i++)
+            {
+                if($this->arreglo[$i] > $this->mayor)
+                {
+                    $this->mayor = $this->arreglo[$i];
+                    $this->indice = $i;
+                }
+            }
+            return $this->indice;
+        }
+    }
+
+
+    class DiagonalMatriz
+    {
+        private $matriz = array();
+        private $n;
+
+        function cargarConEspacio($n)
+        {
+            $this->n = $n;
+            for($i = 0; $i < $this->n; $i++)
+            {
+                for($j = 0; $j < $this->n; $j++)
+                {           
+                    $this->matriz[$i][$j] = 0;
+                }
+            }
+        }
+
+        function crearDiagonal()
+        {
+            for($i = 0; $i < $this->n; $i++)
+            {
+                $this->matriz[$i][$i] = 1;
+            }
+        }
+
+        function mostrarMatriz()
+        {
+            
+            for($i = 0; $i < $this->n; $i++)
+            {
+                for($j = 0; $j < $this->n; $j++)
+                {
+                    
+                    if($this->matriz[$i][$j] <= 9 || $this->matriz[$i][$j] >= 100)
+                    {
+                        echo $this->matriz[$i][$j]."&nbsp &nbsp &nbsp &nbsp &nbsp";
+                    }
+                    else
+                    {
+                        echo $this->matriz[$i][$j]."&nbsp &nbsp &nbsp &nbsp";
+                    }
+                    
+                
+                }
+                echo "<br>";
+            }
+        }
+    }
 ?>

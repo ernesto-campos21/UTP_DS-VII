@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Parcial 1 - Ernesto Campos </title>
+    <title>Lab 4.5 </title>
     <meta http-equiv = "Content-Type" content= "text/html"; charset = "UTF-8">
 </head>
 <body>
