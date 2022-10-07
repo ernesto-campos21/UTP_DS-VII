@@ -2,7 +2,7 @@
 
     require_once('modelo.php');
     
-    class noticias extends modeloCredencialesBD
+    class noticia extends modeloCredencialesBD
     {
         protected $titulo;
         protected $texto;
@@ -15,9 +15,10 @@
             parent::__construct();
         }
 
-        public public function consultar_noticias()
+        public function consultar_noticias()
         {
-            $instruccion = $this->_db->query($instruccion);
+            $instruccion = "CALL sp_listar_noticias()";
+            $consulta = $this->_db->query($instruccion);
             $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 
             if(!$resultado)
