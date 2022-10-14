@@ -31,5 +31,22 @@
                 $this->_db->close();
             }
         }
+
+        public function consultar_noticias_filtro($campo, $valor)
+        {
+            $instruccion = "CALL sp_listar_filtro('".$campo."', '".$valor."')";
+            $consulta = $this->_db->query($instruccion);
+            $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
+
+            if(!$resultado)
+            {
+                echo "Fallo al consultar las noticas";
+            }
+            else{
+                return $resultado;
+                $resultado->close();
+                $this->_db->close();
+            }
+        }
     }
 ?>
