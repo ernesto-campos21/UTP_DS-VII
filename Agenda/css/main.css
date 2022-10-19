@@ -3,9 +3,10 @@
     
 }
 
+
 h3 {
     margin-bottom: 30px;
-    margin-left: 72%;
+    margin-left: 65%;
 }
 
 th {
@@ -18,8 +19,13 @@ td {
     height: 100px;
     width: 100px;
     border-style: groove;
-    text-align: center;
-    
+    text-align: left;
+    vertical-align: top;
+    transition: transform .2s;
+}
+
+td:hover{
+    transform: scale(1.1);
 }
 
 .today {
@@ -38,6 +44,7 @@ table{
     display: flex;
     align-items: right;
     justify-content: right;
+    margin-right: 8%;
 }
 
 .tareas-hoy{
@@ -45,4 +52,23 @@ table{
     position: relative;
     z-index: 10;
     float: left;
+    border-style: double;
+    height: 675px;
+    margin-left: 2%;
+}
+
+td.ctd-hoy{
+    color: black;
+    border: none;
+    width: auto;
+    max-width: 700px;
+}
+
+td.ctd-hoy:hover{
+    transform: scale(1);
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
 }

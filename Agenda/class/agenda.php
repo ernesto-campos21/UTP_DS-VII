@@ -2,6 +2,11 @@
 
     class agenda
     {
+        private $ym, $timestamp, $today, $prev;
+        private $next, $day_count, $str, $week, $date, $day;
+        private $weeks = array();
+        private $html_title;
+        private $st1=0, $st2=0, $st3=0;
         
         public function creacionAgenda(){
 
@@ -10,79 +15,94 @@
 
             // Muestra el mes anterior y siguiente
             if (isset($_GET['ym'])) {
-                $ym = $_GET['ym'];
+                $this->ym = $_GET['ym'];
             } else {
                 // Mes actual
-                $ym = date('Y-m');
+                $this->ym = date('Y-m');
             }
 
             // Verificación de formato
-            $timestamp = strtotime($ym . '-01');
-            if ($timestamp === false) {
-                $ym = date('Y-m');
-                $timestamp = strtotime($ym . '-01');
+            $this->timestamp = strtotime($this->ym . '-01');
+            if ($this->timestamp === false) {
+                $this->ym = date('Y-m');
+                $this->timestamp = strtotime($this->ym . '-01');
             }
 
             // Fecha del día actual
-            $today = date('Y-m-j', time());
+            $this->today = date('Y-m-j', time());
 
             // Titulo donde se visualiza el año y mes
-            $html_title = date('Y / m', $timestamp);
+            $this->html_title = date('Y / m', $this->timestamp);
 
             // Creación del vínculo del mes anterior y siguiente     mktime(hour,minute,second,month,day,year)
-            $prev = date('Y-m', mktime(0, 0, 0, date('m', $timestamp)-1, 1, date('Y', $timestamp)));
-            $next = date('Y-m', mktime(0, 0, 0, date('m', $timestamp)+1, 1, date('Y', $timestamp)));
+            $this->prev = date('Y-m', mktime(0, 0, 0, date('m', $this->timestamp)-1, 1, date('Y', $this->timestamp)));
+            $this->next = date('Y-m', mktime(0, 0, 0, date('m', $this->timestamp)+1, 1, date('Y', $this->timestamp)));
 
-            // $prev = date('Y-m', strtotime('-1 month', $timestamp));
-            // $next = date('Y-m', strtotime('+1 month', $timestamp));
+            // $this->prev = date('Y-m', strtotime('-1 month', $this->timestamp));
+            // $this->next = date('Y-m', strtotime('+1 month', $this->timestamp));
 
             // Revisioón de numero de dias del mes
-            $day_count = date('t', $timestamp);
+            $this->day_count = date('t', $this->timestamp);
             
             // 0:Domingo 1:Lunes 2:Martes ...
-            $str = date('w', mktime(0, 0, 0, date('m', $timestamp), 1, date('Y', $timestamp)));
-            //$str = date('w', $timestamp);
+            $this->str = date('w', mktime(0, 0, 0, date('m', $this->timestamp), 1, date('Y', $this->timestamp)));
+            //$this->str = date('w', $this->timestamp);
 
 
             // Creación del calendario mediante tablas y arreglos
-            $weeks = array();
-            $week = '';
+            
+            $this->week = '';
 
             // Se inicializa con celdas vacías
-            $week .= str_repeat('<td></td>', $str);
+            $this->week .= str_repeat('<td></td>', $this->str);
 
-            for ( $day = 1; $day <= $day_count; $day++, $str++) {
+            for ( $this->day = 1; $this->day <= $this->day_count; $this->day++, $this->str++) {
                 
-                $date = $ym . '-' . $day;
+                $this->date = $this->ym . '-' . $this->day;
                 
-                if ($today == $date) {
-                    $week .= '<td class="today">' . $day;
+                if ($this->today == $this->date) {
+                    $this->week .= '<td class="today"><a class="n_dias" href="#">' . $this->day;
                 } else {
                     //acá realizar el cargado de los eventos para que se visualicen
-                    $week .= '<td>' . $day;
+                    $this->week .= '<td><a class="n_dias" href="#">' . $this->day;
                 }
-                $week .= '</td>';
+                $this->week .= '</a></td>';
                 
                 // Fin de semana o Fin de mes
-                if ($str % 7 == 6 || $day == $day_count) {
+                if ($this->str % 7 == 6 || $this->day == $this->day_count) {
 
-                    if ($day == $day_count) {
+                    if ($this->day == $this->day_count) {
                         // Agregar celda vacía
-                        $week .= str_repeat('<td></td>', 6 - ($str % 7));
+                        $this->week .= str_repeat('<td></td>', 6 - ($this->str % 7));
                     }
 
-                    $weeks[] = '<tr>' . $week . '</tr>';
+                    $this->weeks[] = '<tr>' . $this->week . '</tr>';
 
                     // Se muestran las semanas
-                    $week = '';
+                    $this->week = '';
                 }
 
             }
         }
 
 
-        function getVars(){
-            
+        function get_prev(){
+
+            return $this->prev;
+        }
+
+        function get_next(){
+            return $this->next;
+        }
+
+        function get_htmlTitle(){
+            return $this->html_title;
+        }
+
+        function list_weeks(){
+            foreach ($this->weeks as $this->week) {
+                echo $this->week;
+            }
         }
     }
 ?>
