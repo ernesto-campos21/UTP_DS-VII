@@ -1,9 +1,8 @@
 <?php
-$usuario  = "root";
-$password = "";
-$servidor = "localhost";
-$basededatos = "agendadigital";
-$con = mysqli_connect($servidor, $usuario, $password) or die("No se ha podido conectar al Servidor");
-$db = mysqli_select_db($con, $basededatos) or die("Upps! Error en conectar a la Base de Datos");
-?>
 
+    define('DB_HOST', 'localhost');
+    define('DB_USER', 'root');
+    define('DB_PASS', '');
+    define('DB_NAME', 'agendadigital');
+
+?>

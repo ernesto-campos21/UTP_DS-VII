@@ -8,10 +8,9 @@
 
     <?php 
     include('class/config.php');
-    include('class/agenda.php');
+    require_once('class/agenda.php');
 
-    $SqlEventos   = ("SELECT * FROM eventoscalendar");
-    $resulEventos = mysqli_query($con, $SqlEventos);
+
 
     $obj_agenda = new agenda;
     $obj_agenda->creacionAgenda();
@@ -21,24 +20,27 @@
 
     <div class="container">
       <h3><a href="?ym=<?php echo $obj_agenda->get_prev(); ?>">&lt;</a> <?php echo $obj_agenda->get_htmlTitle(); ?> <a href="?ym=<?php echo $obj_agenda->get_next(); ?>">&gt;</a></h3>
+        
+        <table class = "tareas-hoy">
+        <?php
+            $agenda = $obj_agenda->consultar_eventos();
 
-      
-            <table class = "tareas-hoy">
-                <tr>
-                    <td class = "ctd-hoy" >tareasqqqqq aqui</td>
-                </tr>
-                <tr>
-                    <td class = "ctd-hoy" >tareasqqqqq aqui</td>
-                </tr>
-                <tr>
-                    <td class = "ctd-hoy" >tareasqqqqq aqui</td>
-                </tr>
-                <tr>
-                    <td class = "ctd-hoy" >tareas aqui</td>
-                </tr>
-            </table>
-      
+            if($obj_agenda->get_day() == $obj_agenda->get_date()){
 
+                foreach ($agenda as $resultado)
+                {
+                    print ("<TR>\n");
+                    print ("<TD>" . $resultado['titulo'] . "</TD>\n");
+                    print ("<TD>" . $resultado['texto'] . "</TD>\n");
+                    print ("<TD>" . $resultado['categoria'] . "</TD>\n");
+                    print ("<TD>" . date("j/n/Y", strtotime($resultado['fecha'])) . "</TD>\n");  
+                    print ("</TR>\n");
+                }
+
+            }
+
+        ?>
+        </table>
 
       <table class="table table-bordered">
         <tr>

@@ -1,12 +1,35 @@
 <?php
-
-    class agenda
+    require_once('modelo.php');
+    class agenda extends modeloCredencialesBD
     {
         private $ym, $timestamp, $today, $prev;
         private $next, $day_count, $str, $week, $date, $day;
         private $weeks = array();
         private $html_title;
-        private $st1=0, $st2=0, $st3=0;
+        
+        private $titulo, $fecha_inicial, $fecha_final, $hora_inicial, $hora_final, $ubicacion, $detalle, $correo, $rep_dia, $categoria;
+
+
+        public function __construct(){
+            parent::__construct();
+        }
+
+        public function consultar_eventos()
+        {
+            $instruccion = "CALL sp_listar_eventos()";
+            $consulta = $this->_db->query($instruccion);
+            $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
+
+            if(!$resultado)
+            {
+                echo "Fallo al consultar las actividades";
+            }
+            else{
+                return $resultado;
+                $resultado->close();
+                $this->_db->close();
+            }
+        }
         
         public function creacionAgenda(){
 
@@ -94,6 +117,14 @@
         function get_next(){
             return $this->next;
         }
+        
+        function get_day(){
+            return $this->day;
+        }
+
+        function get_date(){
+            return $this->date;
+        }
 
         function get_htmlTitle(){
             return $this->html_title;
@@ -105,4 +136,9 @@
             }
         }
     }
+
+
+
+
+
 ?>
