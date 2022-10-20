@@ -116,3 +116,7 @@ td a {
     clear: both;
     display: table;
   }
+
+.ttl{
+    font-weight: bold;
+}

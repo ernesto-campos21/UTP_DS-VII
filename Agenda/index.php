@@ -31,25 +31,25 @@
               <tr class = 'reporte'>
                 <td class = 'reporte_td'>
               <?php
-              print ("<span>" . $resultado['titulo'] . "<br>");
+              print ("<span><span class = 'ttl'>Título: </span>" . $resultado['titulo'] . "<br>");
               
-              print ($resultado['fecha_inicial'] . "<br>");
+              print ("<span class = 'ttl'>Fecha inicial: </span>".$resultado['fecha_inicial'] . "<br>");
 
-              print ($resultado['fecha_final'] . "<br>");
+              print ("<span class = 'ttl'>Fecha final: </span>".$resultado['fecha_final'] . "<br>");
 
-              print ($resultado['hora_inicial'] . "<br>");
+              print ("<span class = 'ttl'>Hora inicial: </span>".$resultado['hora_inicial'] . "<br>");
 
-              print ($resultado['hora_final'] . "<br>");
+              print ("<span class = 'ttl'>Hora Final: </span>".$resultado['hora_final'] . "<br>");
 
-              print ($resultado['ubicacion'] . "<br>");
+              print ("<span class = 'ttl'>Ubicación: </span>".$resultado['ubicacion'] . "<br>");
 
-              print ($resultado['detalle']);
+              print ("<span class = 'ttl'>Detalle: </span>".$resultado['detalle']. "<br>");
 
-              print ($resultado['correo'] . "<br>");
+              print ("<span class = 'ttl'>Correo: </span>".$resultado['correo'] . "<br>");
 
-              print ($resultado['rep_dia'] . "<br>");
+              print ("<span class = 'ttl'>Repetir evento?: </span>".$resultado['rep_dia'] . "<br>");
 
-              print ($resultado['categoria'] . "</span>\n"); ?>
+              print ("<span class = 'ttl'>Categoria: </span>".$resultado['categoria'] . "</span>\n"); ?>
               
              
             </td>
