@@ -16,7 +16,8 @@
 
         public function consultar_eventos()
         {
-            $instruccion = "CALL sp_listar_eventos()";
+            //$instruccion = "CALL sp_listar_eventos()";
+            $instruccion = "SELECT * FROM eventos";
             $consulta = $this->_db->query($instruccion);
             $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 
@@ -58,14 +59,15 @@
             $this->html_title = date('Y / m', $this->timestamp);
 
             // Creación del vínculo del mes anterior y siguiente     mktime(hour,minute,second,month,day,year)
-            $this->prev = date('Y-m', mktime(0, 0, 0, date('m', $this->timestamp)-1, 1, date('Y', $this->timestamp)));
-            $this->next = date('Y-m', mktime(0, 0, 0, date('m', $this->timestamp)+1, 1, date('Y', $this->timestamp)));
+            //$this->prev = date('Y-m', mktime(0, 0, 0, date('m', $this->timestamp)-1, 1, date('Y', $this->timestamp)));
+            //$this->next = date('Y-m', mktime(0, 0, 0, date('m', $this->timestamp)+1, 1, date('Y', $this->timestamp)));
 
-            // $this->prev = date('Y-m', strtotime('-1 month', $this->timestamp));
-            // $this->next = date('Y-m', strtotime('+1 month', $this->timestamp));
+            $this->prev = date('Y-m', strtotime('-1 month', $this->timestamp));
+            $this->next = date('Y-m', strtotime('+1 month', $this->timestamp));
 
             // Revisioón de numero de dias del mes
             $this->day_count = date('t', $this->timestamp);
+            
             
             // 0:Domingo 1:Lunes 2:Martes ...
             $this->str = date('w', mktime(0, 0, 0, date('m', $this->timestamp), 1, date('Y', $this->timestamp)));
@@ -119,7 +121,7 @@
         }
         
         function get_day(){
-            return $this->day;
+            return $this->today;
         }
 
         function get_date(){

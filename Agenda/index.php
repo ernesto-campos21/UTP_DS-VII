@@ -10,37 +10,55 @@
     include('class/config.php');
     require_once('class/agenda.php');
 
-
-
     $obj_agenda = new agenda;
     $obj_agenda->creacionAgenda();
+
+    $head = array("titulo", "fecha_inicial", "fecha_final", "hora_inicial", "hora_final", "ubicacion", "detalle", "correo", "rep_dia", "categoria");    
+    $agenda = $obj_agenda->consultar_eventos();  
 
     ?>
 
 
     <div class="container">
       <h3><a href="?ym=<?php echo $obj_agenda->get_prev(); ?>">&lt;</a> <?php echo $obj_agenda->get_htmlTitle(); ?> <a href="?ym=<?php echo $obj_agenda->get_next(); ?>">&gt;</a></h3>
+        <h3 class = "title2">Reportes</h3>
         
-        <table class = "tareas-hoy">
+        
         <?php
-            $agenda = $obj_agenda->consultar_eventos();
+            foreach ($agenda as $resultado)
+            {?>
+            <table>
+              <tr class = 'reporte'>
+                <td class = 'reporte_td'>
+              <?php
+              print ("<span>" . $resultado['titulo'] . "<br>");
+              
+              print ($resultado['fecha_inicial'] . "<br>");
 
-            if($obj_agenda->get_day() == $obj_agenda->get_date()){
+              print ($resultado['fecha_final'] . "<br>");
 
-                foreach ($agenda as $resultado)
-                {
-                    print ("<TR>\n");
-                    print ("<TD>" . $resultado['titulo'] . "</TD>\n");
-                    print ("<TD>" . $resultado['texto'] . "</TD>\n");
-                    print ("<TD>" . $resultado['categoria'] . "</TD>\n");
-                    print ("<TD>" . date("j/n/Y", strtotime($resultado['fecha'])) . "</TD>\n");  
-                    print ("</TR>\n");
-                }
+              print ($resultado['hora_inicial'] . "<br>");
 
-            }
+              print ($resultado['hora_final'] . "<br>");
 
+              print ($resultado['ubicacion'] . "<br>");
+
+              print ($resultado['detalle']);
+
+              print ($resultado['correo'] . "<br>");
+
+              print ($resultado['rep_dia'] . "<br>");
+
+              print ($resultado['categoria'] . "</span>\n"); ?>
+              
+             
+            </td>
+            </tr>
+            </table>
+              <?php
+            }          
         ?>
-        </table>
+        </div>
 
       <table class="table table-bordered">
         <tr>

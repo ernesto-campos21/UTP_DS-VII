@@ -41,10 +41,11 @@ th:nth-of-type(7), td:nth-of-type(7) {
 }
 
 table{
-    display: flex;
+    display: absolute;
     align-items: right;
     justify-content: right;
-    margin-right: 8%;
+    margin-left: 45%;
+
 }
 
 .tareas-hoy{
@@ -57,18 +58,61 @@ table{
     margin-left: 2%;
 }
 
-td.ctd-hoy{
-    color: black;
-    border: none;
+td.reporte_td{
+    color: black !important;
+    border-style: groove;
     width: auto;
+    height: auto;
+    transition: transform .2s;
     max-width: 700px;
+    float: left;
+    margin-top: 2%;
+    margin-left: initial;
 }
 
-td.ctd-hoy:hover{
-    transform: scale(1);
+td.reporte_td:hover{
+    transform: scale(1.05);
 }
 
 a{
     text-decoration: none;
     color: inherit;
 }
+
+h3.title2{
+    
+    float: left !important;
+    margin-top: 0%;
+    margin-bottom: 0% !important;
+    margin-left: 0% !important;
+}
+
+
+td a {
+    display:block !important;
+    width:100% !important;
+}
+
+
+
+* {
+    box-sizing: border-box;
+  }
+  
+  .row {
+    margin-left:-5px;
+    margin-right:-5px;
+  }
+    
+  .column {
+    float: left;
+    width: 50%;
+    padding: 5px;
+  }
+  
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
