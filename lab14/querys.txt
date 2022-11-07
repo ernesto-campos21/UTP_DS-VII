@@ -1,0 +1,27 @@
+-* Tablas *-
+
+Create Table usuarios(
+    id smallint(5) unsigned not null auto_increment,
+    usuario varchar(20) not null default '',
+    clave varchar(20) not null default '',
+    primary key (id)
+);
+
+insert into usuarios values (1, 'testuser', 'teXB5LK3JWG6g');
+
+-* Procedimientos almacenados *-
+
+Create definer=`root`@`localhost` Procedure `sp_validar_usuario`(
+    in param_user varchar(255),
+    in param_pass varchar(255)
+)
+
+Begin
+
+    set @s = concat("select count(*) from usuarios where usuario = '", param_user, "' And clave = '", param_pass, "'");
+
+    prepare stmt from @s;
+    execute stmt;
+    deallocate prepare stmt;
+
+End
