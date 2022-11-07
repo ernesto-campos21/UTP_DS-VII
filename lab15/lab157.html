@@ -1,0 +1,16 @@
+<html>
+    <head>
+    <title>Ejemplo de jQuery con Document Ready</title>
+    <script type="text/javascript"
+    src="js/jquery-3.1.1.js"></script>
+    </head>
+    <body>
+    <div id="divTest1"></div>
+    <script type="text/javascript">
+    function DocumentReady(){
+    $("#divTest1").text("Hola Mundo!");
+    }
+    $(document).ready(DocumentReady);
+    </script>
+    </body>
+</html>

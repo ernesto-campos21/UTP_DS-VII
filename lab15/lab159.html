@@ -1,0 +1,18 @@
+<html>
+    <head>
+    <script src="js/jquery-3.1.1.js"></script>
+    <body>
+    <h1>Ejemplo JQuery - Eventos</h1>
+    <a href="javascript:void(0);">Prueba</a>
+    <script type="text/javascript">
+    $(function()
+    {
+    $("a, span").bind("click", function(){
+    alert("Hola Mundo desde JQuery");
+    }
+    );
+    }
+    );
+    </script>
+    </body>
+</html>
