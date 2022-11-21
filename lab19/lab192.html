@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.1.1.js"></script>
+    <title>Laboratorio 19.2 Ejemplo sencillo de AJAX</title>
+    <script>
+        function realizaProceso(valorCaja1, valorCaja2){
+            var parametros = {
+                "valorCaja1" : valorCaja1,
+                "valorCaja2" : valorCaja2
+            };
+
+            $.ajax({
+                data: parametros,
+                url: 'lab192.php',
+                type: 'post',
+                beforeSend: function(){
+                    $("#resultado").html("Procesando, espere por favor...");
+                },
+                success: function(response){
+                    $("#resultado").html(response);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    Introduce valor 1 <input type="number" name="caja_texto" id="valor1" value="0">
+    Introduce valor 2 <input type="number" name="caja_texto" id="valor2" value="0">
+    Realizar suma <input type="button" value="Calcula" onclick="realizaProceso($('#valor1').val(), $('#valor2').val()); return false;">
+    <br>
+    Resultado: <span id="resultado">0</span>
+</body>
+</html>

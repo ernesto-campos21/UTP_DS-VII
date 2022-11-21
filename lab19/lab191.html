@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>Laboratorio 19.1</title>
+</head>
+<body>
+    <div id="drop_file_zone" ondrop="upload_file(event)" ondragover="return false">
+        <div id="drag_upload_file">
+            <p>Arrastre el archivo aquí</p>
+            <p>o</p>
+            <p><input type="button" value="Seleccione el archivo" onclick="file_explorer();"></p>
+            <input type="file" name="" id="selectfile">
+        </div>
+    </div>
+    <div class="img-content"></div>
+    <script src="js/funciones_ajax.js"></script>
+</body>
+</html>

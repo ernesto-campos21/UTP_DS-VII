@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "637432c81c5912d98f049713"
+  },
+  "nombre": "Giovanni",
+  "apellido": "Buglione",
+  "email": "giovanni.buglione@utp.ac.pa",
+  "edad": 22
+},{
+  "_id": {
+    "$oid": "637433361c5912d98f049715"
+  },
+  "nombre": "Ernesto",
+  "apellido": "Buglione",
+  "email": "giova_1700@hotmail.com",
+  "edad": 22
+}]
