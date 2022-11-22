@@ -10,7 +10,7 @@ if (!file_exists('img')) {
     mkdir('img', 0777);
 }
   
-$filename = time().'_'.$_FILES['file']['name'];
+$filename = $_FILES['file']['name'];
   
 move_uploaded_file($_FILES['file']['tmp_name'], 'img/'.$filename);
   
