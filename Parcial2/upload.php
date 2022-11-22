@@ -6,13 +6,13 @@ if (!(in_array($_FILES['file']['type'], $arr_file_types))) {
     return;
 }
   
-if (!file_exists('uploads')) {
-    mkdir('uploads', 0777);
+if (!file_exists('img')) {
+    mkdir('img', 0777);
 }
   
 $filename = time().'_'.$_FILES['file']['name'];
   
-move_uploaded_file($_FILES['file']['tmp_name'], 'uploads/'.$filename);
+move_uploaded_file($_FILES['file']['tmp_name'], 'img/'.$filename);
   
-echo 'uploads/'.$filename;
+echo 'img/'.$filename;
 die;

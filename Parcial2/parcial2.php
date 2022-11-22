@@ -52,7 +52,6 @@
 
     <?php
         require_once('class/noticias.php');
-
         $obj_noticia = new noticia();
         $noticias =  $obj_noticia->consultar_noticias();
 
