@@ -32,8 +32,19 @@
         <input type="date" id="ffecha" format="yyyy/mm/dd" name="Fecha"><br/>
 
 
-        <label for="fimagen">Imagen:</label><br>
-        <input type="text" id="fimagen" name="Imagen"><br/>
+        <label >Imagen:</label><br>
+        <br><br><br>
+        <div id="drop_file_zone" ondrop="upload_file(event)" ondragover="return false">
+        <div id="drag_upload_file">
+            <p>Arrastra el archivo</p>
+            <p>o</p>
+            <p><input type="button" value="Selecciona el archivo" onclick="file_explorer();" /></p>
+            <input type="file" id="selectfile" name="Imagen" />
+        </div>
+        </div>
+        <br><br><br>
+        <div class="img-content"></div>
+        <script src="js/custom.js"></script>
 
         <input type = "submit" value = "Insertar" name = "insertaValores">
         <input type = "submit" value = "Ver Todos" name = "ConsultarTodos">

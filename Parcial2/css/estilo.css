@@ -18,3 +18,23 @@
    TD.derecha {font-size: 10pt; text-align: right; background: #FFFFFF;}
    TD.izquierda {font-size: 10pt; text-align: left; background: #FFFFFF;}
 
+
+   #drop_file_zone {
+      background-color: #EEE;
+      border: #999 5px dashed;
+      width: 290px;
+      height: 200px;
+      padding: 8px;
+      font-size: 18px;
+  }
+  #drag_upload_file {
+    width:50%;
+    margin:0 auto;
+  }
+  #drag_upload_file p {
+    text-align: center;
+  }
+  #drag_upload_file #selectfile {
+    display: none;
+  }
+
