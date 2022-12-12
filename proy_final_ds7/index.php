@@ -35,8 +35,9 @@
             $usuario_valido = $obj_usuarios -> validar_usuario($usuario, $clave_crypt);
 
             if($usuario_valido){
-
+                $obj_usuarios->setUser($usuario);
                 $_SESSION['usuario_valido'] = $usuario_valido;
+                echo "<script>window.location.href = 'home.php';</script>";
             }
         }
     else{?>

@@ -78,12 +78,6 @@
                     <div class="col-12 forgot">
                         <a href="../index.php">Login</a>
                     </div>
-                    <!--<div th:if="${param.error}" class="alert alert-danger" role="alert">
-                        Contrasena o usuarios incorrectos.
-                    </div>
-                    <div th:if="${param.logout}" class="alert alert-success" role="alert">
-                        Hemos cerrado tu sesion.
-                    </div> -->
                 </div>
             </div>
         </div>

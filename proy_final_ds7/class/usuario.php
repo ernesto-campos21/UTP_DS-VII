@@ -6,6 +6,7 @@
             parent::__construct();
         }
 
+        private string $user_ses;
 
         public function validar_usuario($usr, $pwd){
             $instruccion = "CALL sp_validate_login('".$usr."','".$pwd."')";
@@ -75,6 +76,15 @@
             }
             return false;
         }
-        
+
+  
+        public function setUser($usr){
+            $this->user_ses = $usr;
+        }
+
+        public function getUser(){
+           return $this->user_ses;
+        }
+            
     }
 ?>
