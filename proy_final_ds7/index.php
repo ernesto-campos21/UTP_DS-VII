@@ -20,17 +20,23 @@
 <body>
     <?php
     include("class/usuario.php");
-
+    session_start();
         if(isset($_POST['btnlogin']))
         {
-            $usr = $_POST['username'];
-            $pwd = $_POST['password'];
+            $usuario = $_POST['username'];
+            $clave = $_POST['password'];
 
-            $login = validar_usuario($usr, $pwd);
+            $salt = substr ($usuario, 0 , 2);
+            $clave_crypt = crypt ($clave, $salt);
 
-            if($login)
-            {
-                
+            require_once("class/usuario.php");
+
+            $obj_usuarios = new usuarios();
+            $usuario_valido = $obj_usuarios -> validar_usuario($usuario, $clave_crypt);
+
+            if($usuario_valido){
+
+                $_SESSION['usuario_valido'] = $usuario_valido;
             }
         }
     else{?>
