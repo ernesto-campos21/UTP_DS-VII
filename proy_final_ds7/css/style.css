@@ -91,7 +91,9 @@ button{
     color: white;
 }
 
-td{
-    color: white;
-    z-index: 5;
+.thclass, .tdclass{
+    color: white !important;
+    z-index: 5 !important;
+
 }
+

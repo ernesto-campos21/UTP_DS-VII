@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/style.css" th:href="@{css/index.css}">
+    <link rel="stylesheet" type="text/css" href="css/style.css" th:href="@{css/style.css}">
 
 </head>
 <body>

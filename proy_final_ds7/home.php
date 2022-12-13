@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/style.css" th:href="@{css/index.css}">
+    <link rel="stylesheet" type="text/css" href="css/style.css" th:href="@{css/style.css}">
 </head>
 <body>
     <?php
@@ -36,6 +36,7 @@
         ?>
 
         <div class = "Registro">
+        
             <h1>Tarjetas</h1>
             </div>
             <div class="modal-dialog text-center">
@@ -50,13 +51,13 @@
                             if($nfilas > 0){
                                 print("<TABLE>\n");
                                 print("<TR>\n");
-                                print("<TH>Numero de tarjeta</TH>\n");
-                                print("<TH>Cuenta Asociada</TH>\n");
+                                print("<TH style = 'color:white; border: 1px'>Numero de tarjeta</TH>\n");
+                                print("<TH style = 'color:white;'>Cuenta Asociada</TH>\n");
                                 print("</TR\n");
                                 foreach($show_card as $resultado){
                                     print("<TR>\n");
-                                    print("<TD>".$resultado['card_id']."</TD>\n");
-                                    print("<TD>".$resultado['usr_doc']."</TD>\n");
+                                    print("<TD style = 'color:white;'>".$resultado['card_id']."</TD>\n");
+                                    print("<TD  style = 'color:white;'>".$resultado['usr_doc']."</TD>\n");
                                     print("</TR\n");
                                 }
                                 print("</TABLE>\n");
@@ -83,11 +84,14 @@
                         </form> -->
                         
                     </div>
-                    <div class="col-12 forgot">
-                        <a href="logout.php">Cerrar Sesion</a>
-                    </div>
+                    
                 </div>
+                <div class = "col-12 forgot">
+                    <a style="color: white!important;" href="logout.php">Cerrar Sesion</a>
+                </div>
+                
         </div>
+        
    
     <?php
         } else {
