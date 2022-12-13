@@ -35,7 +35,7 @@
                
         ?>
         <div>
-            <a style="color: white!important; position: absolute; z-index = 50; margin-top: -5%; margin-left:90%;" class="btn btn-primary" href="logout.php">Cerrar Sesion</a>
+            <a style="" class="btn btn-primary cerrarbtn" href="logout.php">Cerrar Sesion</a>
         </div>
         <div class = "Registro">
         
@@ -66,8 +66,8 @@
                             }
                         ?>
                     </div>
-                    <form  class="col-12 form-calse" action="home.php" method="post">
-                        <button style="bottom-rigth:10%; " name="btnsaldo" type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Consultar Saldo </button>
+                    <form  class="col-12 form-calse" action="saldo.php" method="post">
+                        <button name="btnsaldo" type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Consultar Saldo </button>
                         </form>
                     
                 </div>
@@ -78,8 +78,8 @@
     <?php
         } else {
             print("<br><br>\n");
-            print("<p align='center'>Acceso no autorizado</p>");
-            print("<p align='center'>[ <a href='index.php' target='_top'>Conectar</a> ]</p>\n");
+            print("<p style='color:white;font-size:1.5rem;' align='center'>Acceso no autorizado</p>");
+            print("<p align='center'> <a class = 'btn btn-primary' href='index.php' target='_top'>Conectar</a> </p>\n");
         }
     ?>
     
