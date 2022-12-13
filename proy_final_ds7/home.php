@@ -2,8 +2,6 @@
     session_start();
     include("class/usuario.php");
     $obj_usuarios = new usuarios();
-
-
 ?>
 
 
@@ -43,7 +41,29 @@
             <div class="modal-dialog text-center">
                 <div class="col-sm-8 main-section">
                     <div class="modal-content">
-                        <form class="col-12 form-calse" action="registro.php" method="post">
+                        <?php
+                        
+                            $show_card = $obj_usuarios->show_cards_by_user($_SESSION['usuario_valido']);
+
+                            $nfilas=count($show_card);
+
+                            if($nfilas > 0){
+                                print("<TABLE>\n");
+                                print("<TR>\n");
+                                print("<TH>Numero de tarjeta</TH>\n");
+                                print("<TH>Cuenta Asociada</TH>\n");
+                                print("</TR\n");
+                                foreach($show_card as $resultado){
+                                    print("<TR>\n");
+                                    print("<TD>".$resultado['card_id']."</TD>\n");
+                                    print("<TD>".$resultado['usr_doc']."</TD>\n");
+                                    print("</TR\n");
+                                }
+                                print("</TABLE>\n");
+                            }
+                        ?>
+
+                      <!--  <form class="col-12 form-calse" action="registro.php" method="post">
                             <div class="form-group" id="usrdata-group">
                                 <input type="text" class="form-control" placeholder="Nombre" name="name"  required/>
                             </div>
@@ -60,10 +80,11 @@
                                 <input type="password" class="form-control" placeholder="Contrasena" name="password" required/>
                             </div>
                             <button name="btnregister" type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Registrarme </button>
-                        </form>
-                        <div class="col-12 forgot">
-                            <a href="../index.php">Login</a>
-                        </div>
+                        </form> -->
+                        
+                    </div>
+                    <div class="col-12 forgot">
+                        <a href="logout.php">Cerrar Sesion</a>
                     </div>
                 </div>
         </div>

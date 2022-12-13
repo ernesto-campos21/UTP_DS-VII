@@ -6,7 +6,7 @@
             parent::__construct();
         }
 
-        private string $user_ses;
+        //private string $user_ses;
 
         public function validar_usuario($usr, $pwd){
             $instruccion = "CALL sp_validate_login('".$usr."','".$pwd."')";
@@ -84,6 +84,18 @@
 
         public function getUser(){
            return $this->user_ses;
+        }
+
+        public function show_cards_by_user($actual_user){
+            $instruccion = "CALL sp_cards_by_user('".$actual_user."')";        
+            if($consulta = $this -> _db -> query($instruccion)){
+                $resultado = $consulta -> fetch_all(MYSQLI_ASSOC);
+                if($resultado > 0)
+                {
+                    return $resultado;
+                }            
+            }
+            return false;
         }
             
     }

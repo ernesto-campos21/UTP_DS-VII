@@ -90,3 +90,8 @@ button{
 .forgot a{
     color: white;
 }
+
+td{
+    color: white;
+    z-index: 5;
+}
