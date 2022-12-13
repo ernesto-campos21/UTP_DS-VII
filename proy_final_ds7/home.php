@@ -38,7 +38,6 @@
             <a style="" class="btn btn-primary cerrarbtn" href="logout.php">Cerrar Sesion</a>
         </div>
         <div class = "Registro">
-        
             <h1>Tarjetas</h1>
             </div>
             <div class="modal-dialog text-center">

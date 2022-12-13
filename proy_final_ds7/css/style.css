@@ -91,10 +91,22 @@ button{
     color: white;
 }
 
-.thclass, .tdclass{
-    color: white !important;
-    z-index: 5 !important;
+th.saldoclass, td.saldoclass{
+    color:white; 
+    border: 1px solid white;
+}
 
+
+table.saldoclass{
+    border: 2px solid white;
+    margin-left: 35%;
+    margin-top: 5%;
+    background-color: #3b4652;
+    opacity: .85;
+    padding: 12 20px;
+    box-shadow: 0px 0px 3px #848484;
+    width: auto;
+    max-width: 500px;
 }
 
 .cerrarbtn{
