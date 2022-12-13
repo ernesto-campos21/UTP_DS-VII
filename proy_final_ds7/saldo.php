@@ -38,16 +38,20 @@
                $id_tarjeta = $resultado['card_id'];
             }
 
+            $url = "https://saldometrobus.yizack.com/api/tarjeta/".$id_tarjeta;
+            $data = file_get_contents($url);
+            $res = json_decode(($data),true);
+
+
             //echo json_decode(file_get_contents("https://saldometrobus.yizack.com/api/tarjeta/".$id_tarjeta), true);
             //echo file_get_contents("https://saldometrobus.yizack.com/api/tarjeta/".$id_tarjeta);
-            $res = json_decode( file_get_contents("https://saldometrobus.yizack.com/api/tarjeta/".$id_tarjeta), true);
-            //$res = json_decode( file_get_contents("https://saldometrobus.yizack.com/api/tarjeta/32931862"), true);
-            
-            $nfilas2=count($res);
-            if($nfilas2 > 0){
+           
+            //$nfilas2=count($res);
+            //if($nfilas2 > 0){
                 print("<TABLE class = 'saldoclass'>\n");
                 print("<TR>\n");
                 print("<TH class = 'saldoclass'>Numero de tarjeta</TH>\n");
+                //print("<TH class = 'saldoclass'>KSI</TH>\n");
                 print("<TH class = 'saldoclass'>Saldo</TH>\n");
                 print("<TH class = 'saldoclass'>Estado</TH>\n");
                 print("<TH class = 'saldoclass'>Fecha</TH>\n");
@@ -56,16 +60,17 @@
                 print("</TR\n");    
                 foreach($res as $resultado){
                     print("<TR>\n");
-                    print("<TD class = 'saldoclass'>".$resultado['numero']."</TD>\n");
-                    print("<TD class = 'saldoclass'>".$resultado['saldo']."</TD>\n");
-                    print("<TD class = 'saldoclass'>".$resultado['estado']."</TD>\n");
-                    print("<TD class = 'saldoclass'>".$resultado['fecha']."</TD>\n");
-                    print("<TD class = 'saldoclass'>".$resultado['tipo']."</TD>\n");
-                    //print("<TD class = 'saldoclass'>".$resultado['movimientos']."</TD>\n");
+                    print("<TD class = 'saldoclass'>".$resultado->numero."</TD>\n");
+                    //print("<TD class = 'saldoclass'>".$resultado->ksi."</TD>\n");
+                    print("<TD class = 'saldoclass'>".$resultado->saldo."</TD>\n");
+                    print("<TD class = 'saldoclass'>".$resultado->estado."</TD>\n");
+                    print("<TD class = 'saldoclass'>".$resultado->fecha."</TD>\n");
+                    print("<TD class = 'saldoclass'>".$resultado->tipo."</TD>\n");
+                    //print("<TD class = 'saldoclass'>".$resultado->movimientos."</TD>\n");
                     print("</TR\n");
                 }
                 print("</TABLE>\n");
-            }
+            //}
             
         }
 
