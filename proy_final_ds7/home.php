@@ -34,7 +34,9 @@
 
                
         ?>
-
+        <div>
+            <a style="color: white!important; position: absolute; z-index = 50; margin-top: -5%; margin-left:90%;" class="btn btn-primary" href="logout.php">Cerrar Sesion</a>
+        </div>
         <div class = "Registro">
         
             <h1>Tarjetas</h1>
@@ -63,34 +65,14 @@
                                 print("</TABLE>\n");
                             }
                         ?>
-
-                      <!--  <form class="col-12 form-calse" action="registro.php" method="post">
-                            <div class="form-group" id="usrdata-group">
-                                <input type="text" class="form-control" placeholder="Nombre" name="name"  required/>
-                            </div>
-                            <div class="form-group" id="usrdata-group">
-                                <input type="text" class="form-control" placeholder="Apellido" name="lastname" required/>
-                            </div>
-                            <div class="form-group" id="mail-group">
-                                <input type="email" class="form-control" placeholder="tu_correo@tu.dominio.com" name="mail" required/>
-                            </div>
-                            <div class="form-group" id="user-group">
-                                <input type="text" class="form-control" placeholder="00-0000-0000" name="username" required/>
-                            </div>
-                            <div class="form-group" id="contrasena-group">
-                                <input type="password" class="form-control" placeholder="Contrasena" name="password" required/>
-                            </div>
-                            <button name="btnregister" type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Registrarme </button>
-                        </form> -->
-                        
                     </div>
+                    <form  class="col-12 form-calse" action="home.php" method="post">
+                        <button style="bottom-rigth:10%; " name="btnsaldo" type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Consultar Saldo </button>
+                        </form>
                     
                 </div>
-                <div class = "col-12 forgot">
-                    <a style="color: white!important;" href="logout.php">Cerrar Sesion</a>
-                </div>
-                
-        </div>
+            </div>
+            
         
    
     <?php
