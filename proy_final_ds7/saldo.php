@@ -38,10 +38,13 @@
                $id_tarjeta = $resultado['card_id'];
             }
 
-            $res = json_decode( file_get_contents("https://saldometrobus.yizack.com/api/tarjeta/".$id_tarjeta));
-
+            //echo json_decode(file_get_contents("https://saldometrobus.yizack.com/api/tarjeta/".$id_tarjeta), true);
+            //echo file_get_contents("https://saldometrobus.yizack.com/api/tarjeta/".$id_tarjeta);
+            $res = json_decode( file_get_contents("https://saldometrobus.yizack.com/api/tarjeta/".$id_tarjeta), true);
+            //$res = json_decode( file_get_contents("https://saldometrobus.yizack.com/api/tarjeta/32931862"), true);
             
-            if($nfilas > 0){
+            $nfilas2=count($res);
+            if($nfilas2 > 0){
                 print("<TABLE class = 'saldoclass'>\n");
                 print("<TR>\n");
                 print("<TH class = 'saldoclass'>Numero de tarjeta</TH>\n");
@@ -49,7 +52,7 @@
                 print("<TH class = 'saldoclass'>Estado</TH>\n");
                 print("<TH class = 'saldoclass'>Fecha</TH>\n");
                 print("<TH class = 'saldoclass'>Tipo</TH>\n");
-                print("<TH class = 'saldoclass'>Movimientos</TH>\n");
+                //print("<TH class = 'saldoclass'>Movimientos</TH>\n");
                 print("</TR\n");    
                 foreach($res as $resultado){
                     print("<TR>\n");
@@ -58,7 +61,7 @@
                     print("<TD class = 'saldoclass'>".$resultado['estado']."</TD>\n");
                     print("<TD class = 'saldoclass'>".$resultado['fecha']."</TD>\n");
                     print("<TD class = 'saldoclass'>".$resultado['tipo']."</TD>\n");
-                    print("<TD class = 'saldoclass'>".$resultado['movimientos']."</TD>\n");
+                    //print("<TD class = 'saldoclass'>".$resultado['movimientos']."</TD>\n");
                     print("</TR\n");
                 }
                 print("</TABLE>\n");
